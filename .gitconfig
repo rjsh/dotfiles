@@ -1,3 +1,33 @@
 [user]
 	name = Robert Shih
 	email = robertshih@google.com
+[color]
+	ui = auto
+[alias]
+  a=add
+  b=branch
+  c=commit
+  cm=commit -m
+  ca=commit -a
+  cam=commit -a -m
+  caa=commit -a --amend
+  caam=commit -a --amend -m
+  amd=commit --amend
+  amm=commit --amend -m
+  co=checkout
+  cp=cherry-pick
+  d=diff
+  df=diff --name-status
+  h=help
+  lh=log --oneline -n10
+  ll=log
+  l=log --oneline
+  rc=rebase --continue
+  ri=rebase -i
+  rs=reset HEAD^
+  sf=show --name-status
+  s=show
+  ss=status -s -uno
+  st=status
+  uc=reset --soft HEAD^
+  us=reset HEAD --
