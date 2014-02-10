@@ -1,0 +1,9 @@
+bind generic i move-up
+bind generic k move-down
+bind generic ^I scroll-line-up
+bind generic ^K scroll-line-down
+bind generic ^A move-first-line
+bind generic ^E move-last-line
+bind generic j toggle-sort-field
+bind generic ; prompt
+bind main B !git rebase -i %(commit)^
