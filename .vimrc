@@ -29,6 +29,8 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'sgur/ctrlp-extensions.vim'
+NeoBundle 'rjsh/pymp.vim'
+NeoBundle 'rjsh/gt.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
@@ -58,7 +60,6 @@ let g:ctrlp_prompt_mappings = {
       \ 'PrtSelectMove("k")':   ['<c-i>', '<up>'],
       \ 'AcceptSelection("t")': ['<c-j>'],
       \ }
-set runtimepath+=~/.vim/bundle/gt.vim/,~/.vim/bundle/pymp.vim/
 let g:ctrlp_extensions = ['gt', 'yankring', 'cmdline', 'pymp']
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_by_filename = 1
