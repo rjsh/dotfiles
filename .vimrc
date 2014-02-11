@@ -42,6 +42,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'Wombat'
 NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'Valloric/YouCompleteMe', {
