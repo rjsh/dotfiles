@@ -25,33 +25,29 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#rc(expand('~/.vim/bundle/'))
-
-"NeoBundleDisable 'restore_view.vim'
+"
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'benmills/vimux'
+NeoBundle 'sgur/ctrlp-extensions.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
-NeoBundle 'sgur/ctrlp-extensions.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'Valloric/YouCompleteMe', {
-      \ 'build' : {
-      \     'mac' : './install.sh --clang-completer',
-      \     'unix' : './install.sh --clang-completer',
-      \   },
-      \ }
 NeoBundle 'restore_view.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'bling/vim-bufferline'
-"
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'Wombat'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
-
+NeoBundle 'Valloric/YouCompleteMe', {
+      \ 'build' : {
+      \     'mac' : './install.sh --clang-completer',
+      \     'unix' : './install.sh --clang-completer',
+      \   },
+      \ }
 filetype plugin indent on
 NeoBundleCheck
 "
@@ -64,13 +60,6 @@ let g:ctrlp_prompt_mappings = {
       \ }
 set runtimepath+=~/.vim/bundle/gt.vim/,~/.vim/bundle/pymp.vim/
 let g:ctrlp_extensions = ['gt', 'yankring', 'cmdline', 'pymp']
-"let g:ctrlp_buftag_types = {
-"  \ 'erlang'     : '--language-force=erlang --erlang-types=drmf',
-"  \ 'javascript' : {
-"    \ 'bin': 'jsctags',
-"    \ 'args': '-f -',
-"    \ },
-"  \ }
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_by_filename = 1
 let g:ctrlp_working_path_mode = 'raw'
@@ -88,38 +77,22 @@ command! CtrlPCmdline call ctrlp#init(ctrlp#cmdline#id())
 nnoremap <leader>r :CtrlPCmdline <cr>
 nnoremap <leader>f :CtrlPPymp <cr>
 "
-au! BufNewFile,BufRead *tmux*conf set filetype=tmux.conf
+let g:easytags_auto_update = 0
+let g:easytags_auto_highlight = 0
+let g:easytags_updatetime_min = 2000
 "
-let g:VimuxUseNearestPane = 0
-function! VimuxSendLines(s,e)
-  let lines = getline(a:s,a:e)
-  let text = join(lines,"\n")
-  call VimuxSendText(text)
-  call VimuxSendKeys("Enter")
-endfunction
-vnoremap <f3> :<c-w>call VimuxSendLines("'<","'>") <cr>
-nnoremap <f3> :call VimuxSendLines(".",".")<cr>
-inoremap <f3> <esc>:call VimuxSendLines(".",".")<cr>a
-nnoremap <leader>; :VimuxPromptCommand<cr>
-nnoremap <f10> :VimuxRunLastCommand<cr>
-autocmd VimLeave * :VimuxCloseRunner 
+au! BufNewFile,BufRead *tmux*conf set filetype=tmux.conf
 "
 nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
-"nnoremap gu g~
-"vnoremap u ~
 "
 let g:tagbar_autoclose = 1
 nnoremap <leader>o :TagbarToggle<cr>
 nnoremap <leader>/ :TagbarOpen<cr>/
 let g:tagbar_map_close = "<esc>"
 let g:tagbar_ctags_bin = '/usr/bin/ctags'
-"
-let g:easytags_auto_update = 0
-let g:easytags_auto_highlight = 0
-let g:easytags_updatetime_min = 2000
 "
 nnoremap <leader>s yy:@"<cr>
 nnoremap <leader><leader>s :%y<cr>:@"<cr>
@@ -281,6 +254,9 @@ nnoremap <leader>b :echo bufferline#get_echo_string()<cr>
 "
 set virtualedit=block
 set hls
+"
+nnoremap <leader>gf :vertical wincmd f<cr>
+nnoremap <leader>gF :vertical wincmd F<cr>
 "
 nnoremap <c-o> <c-i>
 nnoremap <c-i> <c-o>
