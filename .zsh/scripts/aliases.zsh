@@ -1,4 +1,4 @@
-alias lc=locate
+alias lc='locate -d /dev/shm/mlocate.db'
 alias gr='grep --color=auto'
 alias g=git
 alias ls='ls --color=auto'
