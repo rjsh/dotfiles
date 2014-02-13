@@ -31,3 +31,5 @@
   st=status
   uc=reset --soft HEAD^
   us=reset HEAD --
+[core]
+	editor = vim
