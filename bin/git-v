@@ -1,0 +1,38 @@
+#!/usr/bin/env python
+import re
+from sys import argv
+from sh import mktemp, git, mkdir, rm
+
+from os import system as x, chdir as cd
+from os.path import join as j, dirname as dn
+
+def write(p,c):
+  with open(p,'w') as f:
+    f.write(c.encode('utf8'))
+
+if len(argv) > 1:
+  r=argv[1]
+else:
+  r='HEAD'
+
+d=str(mktemp('-d -t gitv'.split())).strip()
+di=list(git.show(r,_tty_out=False))
+dif=''.join(di)
+
+# write commit msg
+ss=re.split('(?m)(^diff --git.*)',dif)
+msg=ss[0]
+write(j(d,'COMMIT_EDITMSG'),msg)
+
+# write separate file diffs
+for i in xrange(1,len(ss),2):
+  hd=ss[i]
+  dd=ss[i+1]
+  p=hd.split()[2][2:]+'.patch'
+  mkdir('-p',dn(j(d,p)))
+  print p
+  write(j(d,p),hd+dd)
+
+cd(d)
+x('vim `find . -type f`')
+rm('-r',d)
