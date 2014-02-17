@@ -6,17 +6,17 @@ WORDCHARS='*?_-.~=&!#$%^(){}<>'
 compinit 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' completer _oldlist _complete
-. ~/.zsh/scripts/auto-fu.zsh
-zstyle ':auto-fu:var' autoable-function/skiplines '[[:blank:]\\\\\"'\'']*' '(fasd|z|zz|a|f|sf) *' 'g s *[0-9a-f]' '*~' 'adb shell *'
-zstyle ':auto-fu:var' autoable-function/skipwords '[\\\\]*'
 #
-. ~/.zsh/scripts/history.zsh
-. ~/.zsh/scripts/aliases.zsh
+. ~/.zsh/antigen/antigen.zsh
+. ~/.zsh/conf/auto-fu.zsh
+. ~/.zsh/conf/history.zsh
+. ~/.zsh/conf/aliases.zsh
 #
 if which fasd > /dev/null; then eval "$(fasd --init auto)"; fi
 #
 promptinit
-prompt pure
+antigen bundle rjsh/pure # prompt pure
+antigen bundle hchbaw/auto-fu.zsh
 #
 bindkey -e
 bindkey -M afu '^@' auto-fu-toggle
