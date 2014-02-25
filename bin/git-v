@@ -15,7 +15,7 @@ if len(argv) > 1:
 else:
   r='HEAD'
 
-d=str(mktemp('-d -t gitv'.split())).strip()
+d=str(mktemp('-d -t gitv.XXX'.split())).strip()
 di=list(git.show(r,_tty_out=False))
 dif=''.join(di)
 
