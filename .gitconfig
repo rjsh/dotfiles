@@ -23,6 +23,7 @@
   ll=log
   lsha=log --format=%h
   lshar=log --format=%h --reverse
+  ls=ls-files
   l=log --oneline
   rc=rebase --continue
   ri=rebase -i
