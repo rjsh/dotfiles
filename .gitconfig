@@ -21,6 +21,8 @@
   h=help
   lh=log --oneline -n10
   ll=log
+  lsha=log --format=%h
+  lshar=log --format=%h --reverse
   l=log --oneline
   rc=rebase --continue
   ri=rebase -i
