@@ -6,4 +6,9 @@ bind generic ^A move-first-line
 bind generic ^E move-last-line
 bind generic j toggle-sort-field
 bind generic ; prompt
+bind generic tab view-next
+
 bind main B !git rebase -i %(commit)^
+bind main space enter
+
+set focus-child = false
