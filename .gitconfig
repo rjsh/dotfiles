@@ -34,5 +34,15 @@
   st=status
   uc=reset --soft HEAD^
   us=reset HEAD --
+
 [core]
 	editor = vim
+
+[merge]
+	tool = fugitive
+
+[mergetool]
+	prompt = false
+
+[mergetool "fugitive"]
+	cmd = "vim -f -c Gdiff \"$MERGED\""

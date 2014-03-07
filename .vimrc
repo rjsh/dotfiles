@@ -45,6 +45,7 @@ NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
+NeoBundle 'rhysd/conflict-marker.vim'
 NeoBundle 'Valloric/YouCompleteMe', {
       \ 'build' : {
       \     'mac' : './install.sh --clang-completer',
@@ -141,6 +142,7 @@ let g:EasyMotion_mapping_T = 'T'
 "
 set splitbelow
 set completeopt-=preview
+let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_semantic_triggers =  {
@@ -234,6 +236,15 @@ nnoremap <leader>p :call PyLine(getline("."))<cr>
 nnoremap <leader><leader>p :call PyRange(1,"$")<cr>
 vnoremap <leader>p <esc>:call PyRange("'<","'>")<cr>
 "
+python << EOF
+from vim import command as c
+for (m,cmd) in [(m,cmd) for m in 'nv' for cmd in 'presfx']:
+  fmt="autocmd Filetype gitrebase "\
+      +"{m}noremap <leader>{cmd} "\
+      +":{r}pydo return '{cmd} '+line.split(' ',1)[1]<cr>"
+  c(fmt.format(m=m,cmd=cmd,r='' if m=='v' else '.'))
+EOF
+"
 vnoremap <cr> y:let @*=@"<cr>
 nnoremap <leader>v "*p
 "
@@ -256,6 +267,7 @@ nnoremap <leader>b :echo bufferline#get_echo_string()<cr>
 "
 set virtualedit=block
 set hls
+set autochdir
 "
 nnoremap <leader>gf :vertical wincmd f<cr>
 nnoremap <leader>gF :vertical wincmd F<cr>

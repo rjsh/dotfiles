@@ -9,6 +9,7 @@ bind generic ; prompt
 bind generic tab view-next
 
 bind main B !git rebase -i %(commit)^
+bind main v !git v %(commit)
 bind main space enter
 
 set focus-child = false
