@@ -7,12 +7,13 @@ compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' completer _oldlist _complete
 #
+if which fasd > /dev/null; then eval "$(fasd --init auto)"; fi
+#
 . ~/.zsh/antigen/antigen.zsh
+. ~/.zsh/conf/aliases.zsh
 . ~/.zsh/conf/auto-fu.zsh
 . ~/.zsh/conf/history.zsh
-. ~/.zsh/conf/aliases.zsh
-#
-if which fasd > /dev/null; then eval "$(fasd --init auto)"; fi
+. ~/.zsh/conf/abbreviations.zsh
 #
 promptinit
 antigen bundle rjsh/pure # prompt pure
@@ -23,6 +24,9 @@ bindkey -M afu '^@' auto-fu-toggle
 bindkey -M afu '^D' afu+orf-exit-deletechar-list 
 bindkey -M afu '^U' backward-kill-line
 bindkey -M afu '^[[Z' reverse-menu-complete
+bindkey -M afu  " "    magic-abbrev-expand
+bindkey -M afu  "^x "  no-magic-abbrev-expand
+
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
 typeset -A key
@@ -54,6 +58,7 @@ key[PageDown]=${terminfo[knp]}
 zle-line-init () {
   auto-fu-init;
 }
+
 zle -N zle-line-init
 
 #
