@@ -29,6 +29,12 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'rhysd/conflict-marker.vim'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'marijnh/tern_for_vim', {
+      \ 'build' : {
+      \     'mac' : '/Users/robertshih/homebrew/bin/npm install',
+      \     'unix' : 'npm install',
+      \   },
+      \ }
 NeoBundle 'Valloric/YouCompleteMe', {
       \ 'build' : {
       \     'mac' : './install.sh --clang-completer',
@@ -288,6 +294,10 @@ cnoremap <esc>f <s-right>
 inoremap <c-a> <home>
 inoremap <c-e> <end>
 inoremap <f2> <esc>:call TogglePreview()<cr>a
+"
+autocmd Filetype javascript nnoremap <buffer> <leader>. :TernDef<cr>
+autocmd Filetype javascript nnoremap <buffer> <leader>; :TernRefs<cr>
+autocmd Filetype javascript nnoremap <buffer> <leader><leader>f :%!/Users/robertshih/homebrew/bin/js-beautify -<cr>
 "
 if filereadable(".vimrc")
   source .vimrc
