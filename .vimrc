@@ -75,6 +75,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = g:cache_dir.'ctrlp'
 let g:easytags_auto_update = 0
 let g:easytags_auto_highlight = 0
+let g:easytags_cmd = '/usr/bin/ctags'
 let g:easytags_languages = {
     \   'python': {
     \     'cmd': g:easytags_cmd,
