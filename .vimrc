@@ -75,6 +75,15 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = g:cache_dir.'ctrlp'
 let g:easytags_auto_update = 0
 let g:easytags_auto_highlight = 0
+let g:easytags_languages = {
+    \   'python': {
+    \     'cmd': g:easytags_cmd,
+    \       'args': ['--python-kinds=-iv'],
+    \       'fileoutput_opt': '-f',
+    \       'stdout_opt': '-f-',
+    \       'recurse_flag': '-R'
+    \    }
+    \ }
 let g:easytags_updatetime_min = 2000
 let g:tagbar_autoclose = 1
 let g:tagbar_map_close = "<esc>"
