@@ -28,6 +28,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'rhysd/conflict-marker.vim'
+NeoBundle 'mattn/emmet-vim'
 NeoBundle 'Valloric/YouCompleteMe', {
       \ 'build' : {
       \     'mac' : './install.sh --clang-completer',
@@ -87,6 +88,9 @@ let g:easytags_languages = {
     \    }
     \ }
 let g:easytags_updatetime_min = 2000
+let g:user_emmet_install_global = 0
+let g:user_emmet_mode='a'
+let g:user_emmet_expandabbr_key = '<c-y>e'
 let g:tagbar_autoclose = 1
 let g:tagbar_map_close = "<esc>"
 let g:tagbar_ctags_bin = '/Users/robertshih/homebrew/bin/ctags'
@@ -110,7 +114,10 @@ let g:ycm_semantic_triggers =  {
       \ 'and ', 'del ',  'global ',  'not ',  'with ',
       \ 'as ', 'elif ',  'if ',  'or ',  'yield ',
       \ 'assert ', 'else ',  'import ',  'pass ',
-      \ 'break ', 'except ',  'in ',  'raise ']
+      \ 'break ', 'except ',  'in ',  'raise '],
+      \ 'html' : [
+      \ '@', '#', '$', '^', '*', '(', ')', '-', '=', '+', '[', ']', '{', '}',
+      \ ':', '"', '.', '>', ' ']
       \ }
 let g:airline_section_c = '%n:%t%m'
 let g:airline#extensions#bufferline#enabled = 0
