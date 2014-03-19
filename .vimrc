@@ -61,7 +61,7 @@ setglobal fenc=utf-8
 syntax enable
 "
 let mapleader = " "
-let g:cache_dir = '/dev/shm'
+let g:cache_dir = '/Volumes/tmpfs/Caches/'
 let g:ctrlp_prompt_mappings = {
       \ 'PrtSelectMove("j")':   ['<c-k>', '<down>'],
       \ 'PrtSelectMove("k")':   ['<c-i>', '<up>'],
@@ -75,6 +75,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = g:cache_dir.'ctrlp'
 let g:easytags_auto_update = 0
 let g:easytags_auto_highlight = 0
+let g:easytags_cmd = '/Users/robertshih/homebrew/bin/ctags'
 let g:easytags_languages = {
     \   'python': {
     \     'cmd': g:easytags_cmd,
@@ -87,7 +88,7 @@ let g:easytags_languages = {
 let g:easytags_updatetime_min = 2000
 let g:tagbar_autoclose = 1
 let g:tagbar_map_close = "<esc>"
-let g:tagbar_ctags_bin = '/usr/bin/ctags'
+let g:tagbar_ctags_bin = '/Users/robertshih/homebrew/bin/ctags'
 let g:EasyMotion_mapping_j = '<leader><leader>k'
 let g:EasyMotion_mapping_k = '<leader><leader>i'
 let g:EasyMotion_mapping_f = 'f'
@@ -267,9 +268,10 @@ nnoremap <leader>y :CtrlPYankring <cr>
 "
 vnoremap ; :
 vnoremap : ;
-vnoremap <cr> y:call TmuxCopy()<cr>
+vnoremap <cr> y:let @*=@"<cr>
 vnoremap <leader>p <esc>:call PyRange("'<","'>")<cr>
 vnoremap <leader>s :y<cr>:@"<cr>
+vnoremap gx :normal gx<cr>
 "
 cnoremap <c-a> <home>
 cnoremap <esc>b <s-left>
