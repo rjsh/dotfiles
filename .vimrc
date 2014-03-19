@@ -165,6 +165,24 @@ for (m,cmd) in [(m,cmd) for m in 'nv' for cmd in 'presfx']:
   vc(fmt.format(m=m,cmd=cmd,r='' if m=='v' else '.'))
 EOF
 "
+fu! TmuxCopy()
+python << EOF
+from os import environ,unlink as rm
+from sh import tmux
+from tempfile import NamedTemporaryFile as tmp
+try:
+  _=environ['TMUX']
+  t=tmp(delete=False)
+  t.close()
+  for i in xrange(18,-1,-1):
+    tmux('saveb -b {i} {p}'.format(i=i  ,p=t.name).split())
+    tmux('loadb -b {j} {p}'.format(j=i+1,p=t.name).split())
+  r0=ve('@0')
+  tmux('setb -b 0'.split()+[r0])
+except:
+  pass
+EOF
+endf
 "
 if has('gui_running')
   set background=light
