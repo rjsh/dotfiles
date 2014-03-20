@@ -2,6 +2,7 @@ typeset -Ag abbreviations
 
 abbreviations=(
   "ff" "\$(fzf)"
+  "gg" "\$(g menu -n1000)"
 )
 
 magic-abbrev-expand() {
