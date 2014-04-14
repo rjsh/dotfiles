@@ -64,3 +64,16 @@ zle -N zle-line-init
 
 #
 stty -ixon
+
+unalias zz
+zz () {
+  cd `fasd -d -t -l -R $1 | fzf || echo .`
+}
+
+vv () {
+  vim `fasd -f -t -l -R $1 | fzf`
+}
+
+hh () {
+  eval "$(history 1 | grep $1.'*' | tr -s ' ' | cut -d ' ' -f 3- | tac | fzf)"
+}

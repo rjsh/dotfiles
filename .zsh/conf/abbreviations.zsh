@@ -1,7 +1,7 @@
 typeset -Ag abbreviations
 
 abbreviations=(
-  "ff" "\$(fzf)"
+  "ff" "\$(fasd -f -t -l -R | fzf)"
   "gg" "\$(g menu -n1000)"
 )
 
