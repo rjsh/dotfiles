@@ -8,11 +8,11 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 "
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'file:///Users/robertshih/git-repos/vim-rssdb.git'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'sgur/ctrlp-extensions.vim'
 NeoBundle 'rjsh/pymp.vim'
 NeoBundle 'rjsh/gt.vim'
+NeoBundle 'rjsh/rssv'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
