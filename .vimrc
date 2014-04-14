@@ -48,7 +48,7 @@ filetype plugin indent on
 NeoBundleCheck
 "
 set ai
-set autochdir
+" set autochdir
 set completeopt-=preview
 set expandtab
 set fileencodings=utf-8
