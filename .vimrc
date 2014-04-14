@@ -282,6 +282,7 @@ nnoremap <leader>/ :TagbarOpen<cr>/
 nnoremap <leader>t :CtrlPTag <cr>
 nnoremap <leader>v "*p
 nnoremap <leader>y :CtrlPYankring <cr>
+nnoremap <leader>. :YcmCompleter GoToDefinition<cr>
 "
 vnoremap ; :
 vnoremap : ;
