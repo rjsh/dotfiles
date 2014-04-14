@@ -7,6 +7,7 @@ compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' completer _oldlist _complete
 #
+if which rbenv > /dev/null; then eval "$(rbenv init - | sed 2s,bash,zsh, )"; fi
 if which fasd > /dev/null; then eval "$(fasd --init auto)"; fi
 #
 . ~/.zsh/antigen/antigen.zsh
