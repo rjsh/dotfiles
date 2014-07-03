@@ -1,3 +1,4 @@
+alias c='fasd_cd -d'
 alias cdd='cd -'
 alias e=vim
 alias g=git
