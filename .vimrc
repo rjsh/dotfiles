@@ -23,6 +23,7 @@ NeoBundle 'bling/vim-bufferline'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'Wombat'
+NeoBundle 'wombat256.vim'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-repeat'
@@ -94,7 +95,7 @@ let g:easytags_languages = {
     \       'fileoutput_opt': '-f',
     \       'stdout_opt': '-f-',
     \       'recurse_flag': '-R'
-    \    }
+    \    },
     \ }
 let g:easytags_updatetime_min = 2000
 let g:user_emmet_install_global = 0
@@ -227,7 +228,7 @@ else
     let g:airline_theme="dark"
   elseif g:iterm_profile=='Visor'
     "let g:airline_powerline_fonts=1
-    colorscheme wombat
+    colorscheme wombat256mod
     let g:airline_theme="wombat"
   elseif g:iterm_profile=='tmux'
     colorscheme solarized
