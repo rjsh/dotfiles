@@ -67,7 +67,7 @@ stty -ixon
 
 unalias zz
 zz () {
-  cd `fasd -d -t -l -R $1 | fzf || echo .`
+  cd "`fasd -d -t -l -R $1 | fzf || echo .`"
 }
 
 vv () {
