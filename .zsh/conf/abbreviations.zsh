@@ -3,6 +3,7 @@ typeset -Ag abbreviations
 abbreviations=(
   "ff" "\$(fasd -f -t -l -R | fzf)"
   "gg" "\$(g menu -n1000)"
+  "sd" "\"\$(fasd -d -t -l -R | fzf)\""
 )
 
 magic-abbrev-expand() {
