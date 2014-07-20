@@ -9,6 +9,7 @@ alias grv='grep --color=auto -v'
 alias hist='history 1'
 alias lc=locate
 alias ls='ls -G'
+alias o=open
 alias pbc='python -c "import sys;sys.stdout.write(sys.stdin.read().strip())" | pbcopy'
 alias pbq='pbc;exit'
 alias pwd='pwd -P'
