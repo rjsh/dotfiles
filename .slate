@@ -1,0 +1,19 @@
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+
+bind j:ctrl;cmd chain push left  bar-resize:2*screenSizeX/3 | push left  bar-resize:screenSizeX/2
+bind l:ctrl;cmd chain push right bar-resize:1*screenSizeX/3 | push right bar-resize:screenSizeX/2
+bind i:ctrl;cmd push up    bar-resize:screenSizeY/2
+bind k:ctrl;cmd push down  bar-resize:screenSizeY/2
+
+bind u:ctrl;cmd corner top-left     resize:2*screenSizeX/3;screenSizeY/2
+bind o:ctrl;cmd corner top-right    resize:screenSizeX/3;screenSizeY/2
+bind n:ctrl;cmd corner bottom-left  resize:2*screenSizeX/3;screenSizeY/2
+bind m:ctrl;cmd corner bottom-right resize:screenSizeX/3;screenSizeY/2
+
+bind h:ctrl;cmd move screenOriginX;screenOriginY screenSizeX;screenSizeY
+bind k:cmd hint rfvtgbujmyhn
+
+bind 1:alt;cmd throw 0
+bind 2:alt;cmd throw 1
